@@ -1,3 +1,8 @@
+logger:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    com.example: DEBUG
 spring:
   datasource:
     url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/aiwingedproject}
