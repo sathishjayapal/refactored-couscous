@@ -16,10 +16,11 @@ import org.springframework.web.servlet.ModelAndView;
  * @see BasicErrorController
  */
 @Controller
+@Slf4j
 public class HtmxErrorController {
 
     private final BasicErrorController basicErrorController;
-
+    private static final Logger logger = org.slf4j.LoggerFactory.getLogger(HtmxErrorController.class);
     public HtmxErrorController(final BasicErrorController basicErrorController) {
         this.basicErrorController = basicErrorController;
     }
@@ -28,6 +29,7 @@ public class HtmxErrorController {
     @ResponseStatus(HttpStatus.OK)
     public ModelAndView errorHtmx(final HttpServletRequest request,
             final HttpServletResponse response) {
+        logger.info("Handling htmx error request");
         return basicErrorController.errorHtml(request, response);
     }
 
